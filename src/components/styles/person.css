@@ -1,0 +1,67 @@
+@media screen and (max-width: 1200px) {
+    .splide {
+        padding: 0 15px;
+    }
+}
+
+.splide__slide {
+    height: 300px;
+    margin: 0 2px;
+}
+
+@media screen and (max-width: 560px) {
+    .splide__slide {
+        height: 200px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .splide__slide {
+        height: 150px;
+    }
+}
+
+.bloc {
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 100%;
+    width: 100%;
+    height: 80%;
+}
+
+.personImg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.personData {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+@media screen and (max-width: 560px) {
+    .personData {
+        font-size: 14px;
+        font-weight: 300;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .personData {
+        font-size: 10px;
+    }
+}
+
+.splide {
+    margin-top: 35px;
+}
+
+.splide__arrow {
+    top: 43%;
+}

@@ -1,0 +1,1 @@
+export const addCartoon = (cartoon) => ({ type: 'ADD_CARTOON', payload: cartoon });

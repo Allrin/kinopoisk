@@ -1,0 +1,32 @@
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { listMovies } from '../../services/movies';
+import { areYouHere } from '../../redux/movies/actions';
+
+import PaginationMovies from './PaginationMovies';
+
+const MoviesPage = () => {
+    const dispatch = useDispatch();
+
+    const movies = useSelector((state) => state.movies.movies);
+
+    useEffect(() => {
+        dispatch(listMovies());
+        dispatch(areYouHere(false));
+    }, []);
+
+    const handleChange = (event, value) => {
+        dispatch(listMovies(value));
+    };
+
+    return (
+        <>
+            {movies && (
+                <PaginationMovies movies={movies} handleChange={handleChange} />
+            )}
+        </>
+    );
+};
+
+export default MoviesPage;

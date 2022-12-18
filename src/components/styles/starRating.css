@@ -1,0 +1,33 @@
+.rating {
+    margin-left: 15px;
+    font-size: 25px;
+    font-weight: 500;
+}
+
+@media screen and (max-width: 560px) {
+    .rating {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .rating {
+        margin-left: 5px;
+        font-size: 17px;
+    }
+}
+
+.swal-title {
+    color: inherit;
+}
+
+.darkModal {
+    background-color: black;
+    border: 1px solid white;
+    color: white;
+}
+
+.lightModal {
+    background-color: white;
+    color: black;
+}

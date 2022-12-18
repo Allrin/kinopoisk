@@ -1,0 +1,57 @@
+.unprincipled {
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 767px) {
+    .unprincipled {
+        flex-direction: column;
+    }
+}
+
+.unprincipledDescription {
+    width: 60%;
+}
+
+@media screen and (max-width: 767px) {
+    .unprincipledDescription {
+        width: 100%;
+    }
+}
+
+.unprincipledDescriptionItem {
+    max-width: 430px;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 18px;
+    margin-top: 15px;
+}
+
+@media screen and (max-width: 767px) {
+    .unprincipledDescriptionItem {
+        max-width: 100%;
+    }
+}
+
+.unprincipledDescriptionItemSpan {
+    font-weight: 700;
+}
+
+.unprincipledImg {
+    width: 40%;
+}
+
+@media screen and (max-width: 767px) {
+    .unprincipledImg {
+        width: 100%;
+        margin-top: 15px;
+    }
+}
+
+.premieres {
+    margin-top: 50px;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 24px;
+}
