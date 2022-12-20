@@ -5,7 +5,7 @@ import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
-import useIsMibile from '../hocks/useIsMobile';
+import useIsMibile from '../hooks/useIsMobile';
 import MoviesList from './MoviesList';
 import '../styles/pagination.css';
 

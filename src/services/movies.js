@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { addMovies, addDataMovie } from '../redux/movies/actions';
 import { addSearchMovies } from '../redux/search/actions';
-import { premieresMovies } from '../redux/movies/actions';
 
 export const listMovies = (pageNumber) => {
     return function (dispatch) {
@@ -11,8 +10,6 @@ export const listMovies = (pageNumber) => {
             )
             .then((response) => {
                 const movies = response.data;
-                // movies.map((movie) => (movie.favourite = false));
-                // localStorage.setItem('movies', JSON.stringify(movies));
                 dispatch(addMovies(movies));
             })
             .catch((err) => console.log(err));
@@ -27,8 +24,6 @@ export const listCartoon = (pageNumber) => {
             )
             .then((response) => {
                 const movies = response.data;
-                // movies.map((movie) => (movie.favourite = false));
-                // localStorage.setItem('movies', JSON.stringify(movies));
                 console.log(movies);
                 dispatch(addMovies(movies));
             })
@@ -44,8 +39,6 @@ export const listSeries = (pageNumber) => {
             )
             .then((response) => {
                 const movies = response.data;
-                // movies.map((movie) => (movie.favourite = false));
-                // localStorage.setItem('movies', JSON.stringify(movies));
                 console.log(movies);
                 dispatch(addMovies(movies));
             })
@@ -76,7 +69,6 @@ export const searchMovies = (name, pageNumber) => {
             )
             .then((response) => {
                 const movies = response.data;
-                // movies.map((movie) => (movie.favourite = false));
                 dispatch(addSearchMovies(movies));
             })
             .catch((err) => console.log(err));

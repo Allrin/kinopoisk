@@ -1,22 +1,44 @@
-import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeTheme } from '../../redux/theme/actions';
 import Hamburger from 'hamburger-react';
 
 import CustomizedSwitches from './SwitherTheme';
+import { getAuth, signOut } from 'firebase/auth';
+
 import Menu from './Menu';
 import Search from '../Movies/Search';
 import './header.css';
 
 const Header = () => {
+    const auth = getAuth();
+    const user = auth.currentUser;
     const dispatch = useDispatch();
     const theme = useSelector((state) => state.theme.theme);
 
     const [isOpen, setOpen] = useState(false);
 
+    const [isOpenLogout, setIsOpenLogout] = useState(false);
+
+    const logout = () => {
+        if (user !== null) {
+            signOut(auth)
+                .then(() => {
+                    // Sign-out successful.
+                })
+                .catch((error) => {
+                    // An error happened.
+                });
+        }
+    };
     const switchTheme = () => {
         const nextTheme = theme === 'dark' ? 'light' : 'dark';
         dispatch(changeTheme(nextTheme));
+    };
+
+    const closeMenu = () => {
+        setOpen(false);
     };
 
     return (
@@ -50,11 +72,50 @@ const Header = () => {
                                 fill="#fff"
                             ></path>
                         </svg>
-                        <div>{isOpen && <Menu />}</div>
+                        <div>
+                            {isOpen && <Menu onClick={closeMenu} user={user} />}
+                        </div>
                     </div>
                     <div className="containerSearch">
                         <Search />
                         <CustomizedSwitches switchTheme={switchTheme} />
+                        {user ? (
+                            <>
+                                <Link
+                                    onClick={closeMenu}
+                                    className="auth"
+                                    to="/login"
+                                    onMouseEnter={() => setIsOpenLogout(true)}
+                                >
+                                    {user.email.split('@')[0]}
+                                </Link>
+                                {isOpenLogout && (
+                                    <p
+                                        onMouseEnter={() =>
+                                            setIsOpenLogout(true)
+                                        }
+                                        onMouseLeave={() =>
+                                            setIsOpenLogout(false)
+                                        }
+                                        className="logout"
+                                        onClick={() => {
+                                            logout();
+                                            setIsOpenLogout(false);
+                                        }}
+                                    >
+                                        Выйти
+                                    </p>
+                                )}
+                            </>
+                        ) : (
+                            <Link
+                                onClick={closeMenu}
+                                className="auth"
+                                to="/login"
+                            >
+                                Войти
+                            </Link>
+                        )}
                     </div>
                 </div>
             </header>

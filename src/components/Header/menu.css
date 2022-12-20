@@ -35,6 +35,33 @@
     margin-right: 7px;
 }
 
+.menuItemAuth {
+    display: none;
+}
+
+.menuItemAuth > a {
+    color: rgb(153, 153, 153);
+}
+
+.menuItemAuth > p {
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.menuItemAuth > p:hover {
+    color: #fff;
+}
+
+@media screen and (max-width: 360px) {
+    .menuItemAuth {
+        width: 100%;
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+        color: rgb(153, 153, 153);
+    }
+}
+
 .menu > img {
     max-width: 164px;
     cursor: pointer;

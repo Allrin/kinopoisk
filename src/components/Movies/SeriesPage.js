@@ -7,9 +7,13 @@ import { areYouHere } from '../../redux/movies/actions';
 
 import PaginationMovies from './PaginationMovies';
 
+import loadBLack from '../images/loadBlack.gif';
+import loadWhite from '../images/loadWhite.gif';
+
 const SeriesPage = () => {
     const dispatch = useDispatch();
 
+    const myTheme = useSelector((state) => state.theme.theme);
     const movies = useSelector((state) => state.movies.movies);
 
     useEffect(() => {
@@ -23,8 +27,13 @@ const SeriesPage = () => {
 
     return (
         <>
-            {movies && (
+            {!!movies ? (
                 <PaginationMovies movies={movies} handleChange={handleChange} />
+            ) : (
+                <img
+                    className="loading"
+                    src={myTheme === 'dark' ? loadWhite : loadBLack}
+                />
             )}
         </>
     );

@@ -6,7 +6,7 @@ import Stack from '@mui/material/Stack';
 import StarIcon from '@mui/icons-material/Star';
 import swal from 'sweetalert';
 
-import useIsMibile from '../hocks/useIsMobile';
+import useIsMibile from '../hooks/useIsMobile';
 import '../styles/starRating.css';
 
 const StarRating = ({ rating, onChange }) => {

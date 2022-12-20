@@ -52,3 +52,10 @@
     background-color: white;
     color: black;
 }
+
+.loading {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 30%;
+}

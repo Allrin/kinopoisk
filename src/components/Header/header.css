@@ -52,4 +52,56 @@
 .containerSearch {
     display: flex;
     align-items: center;
+    height: 100%;
+}
+
+.container_auth {
+    height: 100%;
+}
+
+.auth {
+    color: rgb(153, 153, 153);
+}
+
+.auth:hover {
+    color: #fff;
+}
+
+@media screen and (max-width: 560px) {
+    .auth {
+        margin-right: 7px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .auth {
+        display: none;
+    }
+}
+
+.logout {
+    position: absolute;
+    height: 100%;
+    padding: 30px;
+    top: 80%;
+    right: 8%;
+    color: rgb(153, 153, 153);
+    background-color: #141414;
+    cursor: pointer;
+}
+
+.logout:hover {
+    color: #fff;
+}
+
+@media screen and (max-width: 1479px) {
+    .logout {
+        right: 1%;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .logout {
+        right: 0;
+    }
 }

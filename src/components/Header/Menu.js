@@ -1,14 +1,30 @@
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { getAuth, signOut } from 'firebase/auth';
 import './menu.css';
 import gameimg from '../images/menu/gamemovie.png';
 
+const Menu = ({ onClick }) => {
+    const auth = getAuth();
+    const user = auth.currentUser;
 
+    const logout = () => {
+        if (user !== null) {
+            signOut(auth)
+                .then(() => {
+                    // Sign-out successful.
+                })
+                .catch((error) => {
+                    // An error happened.
+                });
+        }
+    };
 
-const Menu = () => {
     return (
         <>
             <nav className="menu">
-                <Link className="menuItem" to="/">
+                <Link onClick={onClick} className="menuItem" to="/">
                     <svg
                         width="24"
                         height="24"
@@ -24,7 +40,7 @@ const Menu = () => {
                     </svg>
                     Главная
                 </Link>
-                <Link className="menuItem" to="/moviesPage">
+                <Link onClick={onClick} className="menuItem" to="/moviesPage">
                     <svg
                         width="24"
                         height="24"
@@ -40,7 +56,7 @@ const Menu = () => {
                     </svg>
                     Фильмы
                 </Link>
-                <Link className="menuItem" to="/seriesPage">
+                <Link onClick={onClick} className="menuItem" to="/seriesPage">
                     <svg
                         width="24"
                         height="24"
@@ -56,7 +72,7 @@ const Menu = () => {
                     </svg>
                     Сериалы
                 </Link>
-                <Link className="menuItem" to="/cartoonPage">
+                <Link onClick={onClick} className="menuItem" to="/cartoonPage">
                     <svg
                         width="24"
                         height="24"
@@ -72,7 +88,7 @@ const Menu = () => {
                     </svg>
                     Мультфильмы
                 </Link>
-                <Link className="menuItem" to="/liked">
+                <Link onClick={onClick} className="menuItem" to="/liked">
                     <svg
                         width="24"
                         height="24"
@@ -83,7 +99,35 @@ const Menu = () => {
                     </svg>
                     Избранные
                 </Link>
-                <img src={gameimg} />
+                {user ? (
+                    <div className="menuItemAuth">
+                        <Link
+                            onClick={onClick}
+                            
+                            to="/login"
+                        >
+                            {user.email.split('@')[0]}
+                        </Link>
+                        <p
+                            onClick={() => {
+                                logout();
+                                onClick();
+                            }}
+                        >
+                            Выйти
+                        </p>
+                    </div>
+                ) : (
+                    <Link
+                        onClick={onClick}
+                        className="menuItemAuth"
+                        to="/login"
+                    >
+                        Войти
+                    </Link>
+                )}
+
+                {/* <img src={gameimg} /> */}
             </nav>
         </>
     );

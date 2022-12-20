@@ -6,9 +6,13 @@ import { listCartoon } from '../../services/movies';
 import PaginationMovies from './PaginationMovies';
 import { areYouHere } from '../../redux/movies/actions';
 
+import loadBLack from '../images/loadBlack.gif';
+import loadWhite from '../images/loadWhite.gif';
+
 const CartoonPage = () => {
     const dispatch = useDispatch();
 
+    const myTheme = useSelector((state) => state.theme.theme);
     const movies = useSelector((state) => state.movies.movies);
 
     useEffect(() => {
@@ -21,11 +25,16 @@ const CartoonPage = () => {
     };
 
     return (
-        <main>
-            {movies && (
+        <>
+            {!!movies ? (
                 <PaginationMovies movies={movies} handleChange={handleChange} />
+            ) : (
+                <img
+                    className="loading"
+                    src={myTheme === 'dark' ? loadWhite : loadBLack}
+                />
             )}
-        </main>
+        </>
     );
 };
 

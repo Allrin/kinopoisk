@@ -1,9 +1,5 @@
-import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { nameSearchMovie } from '../../redux/search/actions';
-
-import { addMovies } from '../../redux/movies/actions';
 import { searchMovies } from '../../services/movies';
 
 import PaginationMovies from './PaginationMovies';

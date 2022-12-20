@@ -5,11 +5,13 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
+import useIsMibile from '../hooks/useIsMobile';
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
-    width: 62,
-    height: 34,
+    width: 53,
+    height: 32,
     padding: 7,
+    marginRight: 0,
     '& .MuiSwitch-switchBase': {
         margin: 1,
         padding: 0,
@@ -31,8 +33,8 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
     },
     '& .MuiSwitch-thumb': {
         backgroundColor: theme.palette.mode === 'dark' ? '#003892' : '#001e3c',
-        width: 32,
-        height: 32,
+        width: 27,
+        height: 27,
         '&:before': {
             content: "''",
             position: 'absolute',

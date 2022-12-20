@@ -1,0 +1,24 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container > h1 {
+    font-size: 20px;
+}
+
+.container > p {
+    max-width: 210px;
+    text-align: center;
+    line-height: 1.9;
+}
+
+.container > p > a {
+    font-weight: 500;
+}
+
+.container > p > a:hover {
+    color: #c00;;
+}

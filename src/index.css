@@ -11,6 +11,10 @@ a {
     text-decoration: none;
 }
 
+button {
+    cursor: pointer;
+}
+
 #root {
     display: flex;
     flex-direction: column;

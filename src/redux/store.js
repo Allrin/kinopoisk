@@ -7,6 +7,7 @@ import searchReducer from './search/reducer';
 import seriesReducer from './series/reducer';
 import cartoonReducer from './cartoon/reducer';
 import favoritesReducer from './favorites/reducer';
+import usersReducer from './users/reducer';
 
 const reducers = combineReducers({
     movies: moviesReducer,
@@ -15,6 +16,7 @@ const reducers = combineReducers({
     series: seriesReducer,
     cartoon: cartoonReducer,
     favoritesMovies: favoritesReducer,
+    user: usersReducer,
 });
 
 const store = createStore(reducers, applyMiddleware(thunk));

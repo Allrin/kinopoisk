@@ -13,6 +13,8 @@ import CartoonPage from './components/Movies/CartoonPage';
 import SearchPage from './components/Movies/SearchPage';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
+import LoginPage from './components/Users/LoginPage';
+import RegistrePage from './components/Users/RegistrePage';
 
 function App() {
     const theme = useSelector((state) => state.theme.theme);
@@ -29,7 +31,9 @@ function App() {
                         <Route path="/cartoonPage" element={<CartoonPage />} />
                         <Route path="/liked" element={<Liked />} />
                         <Route path="/movies/:id" element={<ItemPage />} />
-                        <Route path="searchPage" element={<SearchPage />} />
+                        <Route path="/searchPage" element={<SearchPage />} />
+                        <Route path="/login" element={<LoginPage />} />
+                        <Route path="/registre" element={<RegistrePage />} />
                     </Routes>
                 </div>
             </main>

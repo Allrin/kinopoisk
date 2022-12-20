@@ -1,22 +1,7 @@
 import { Link } from 'react-router-dom';
 import styles from '../styles/moviesItem.module.css';
 
-const MoviesItem = ({
-    id,
-    poster,
-    name,
-    year,
-    movieLength,
-    alternativeName,
-    rating,
-}) => {
-    const chechNull = (element) => {
-        if (!!element === true) {
-            return element;
-        }
-        return '';
-    };
-
+const MoviesItem = ({ id, poster, name, year, alternativeName }) => {
     return (
         <div className={styles.containerItem}>
             <Link className={styles.link} to={`/movies/${id}`}>
