@@ -14,6 +14,7 @@ import './header.css';
 const Header = () => {
     const auth = getAuth();
     const user = auth.currentUser;
+
     const dispatch = useDispatch();
     const theme = useSelector((state) => state.theme.theme);
 
@@ -84,7 +85,7 @@ const Header = () => {
                                 <Link
                                     onClick={closeMenu}
                                     className="auth"
-                                    to="/login"
+                                    to={user ? '/' : '/login'}
                                     onMouseEnter={() => setIsOpenLogout(true)}
                                 >
                                     {user.email.split('@')[0]}

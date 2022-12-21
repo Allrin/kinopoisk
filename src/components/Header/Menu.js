@@ -101,11 +101,7 @@ const Menu = ({ onClick }) => {
                 </Link>
                 {user ? (
                     <div className="menuItemAuth">
-                        <Link
-                            onClick={onClick}
-                            
-                            to="/login"
-                        >
+                        <Link onClick={onClick} to={user ? '/' : '/login'}>
                             {user.email.split('@')[0]}
                         </Link>
                         <p
@@ -120,7 +116,7 @@ const Menu = ({ onClick }) => {
                 ) : (
                     <Link
                         onClick={onClick}
-                        className="menuItemAuth"
+                        className="menuItemAuth menuItemAuth_sing"
                         to="/login"
                     >
                         Войти

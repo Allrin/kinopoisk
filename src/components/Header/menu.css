@@ -58,8 +58,13 @@
         margin-top: 20px;
         display: flex;
         justify-content: space-between;
+        align-items: center;
         color: rgb(153, 153, 153);
     }
+}
+
+.menuItemAuth_sing:hover {
+    color: #fff;
 }
 
 .menu > img {
