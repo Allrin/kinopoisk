@@ -15,6 +15,8 @@ import {
 } from '../../redux/favorites/actions';
 
 import styles from '../styles/itemPage.module.css';
+import loadBLack from '../images/loadBlack.gif';
+import loadWhite from '../images/loadWhite.gif';
 
 const ItemPage = () => {
     const { id } = useParams();
@@ -66,7 +68,7 @@ const ItemPage = () => {
 
     return (
         <>
-            {oneMovie && (
+            {oneMovie ? (
                 <>
                     <div className={styles.sectionHead}>
                         <div className={styles.sectionHeadPreview}>
@@ -256,6 +258,11 @@ const ItemPage = () => {
                         <StarRating rating={oneMovie.rating.imdb} />
                     </div>
                 </>
+            ) : (
+                <img
+                    className="loading"
+                    src={myTheme === 'dark' ? loadWhite : loadBLack}
+                />
             )}
         </>
     );

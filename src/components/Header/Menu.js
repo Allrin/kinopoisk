@@ -116,7 +116,7 @@ const Menu = ({ onClick }) => {
                 ) : (
                     <Link
                         onClick={onClick}
-                        className="menuItemAuth menuItemAuth_sing"
+                        className="menuItemAuth menuItemAuth_sign"
                         to="/login"
                     >
                         Войти
